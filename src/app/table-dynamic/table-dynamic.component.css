@@ -1,0 +1,7 @@
+app-table-dynamic {
+  width: 100%;
+}
+
+app-table-dynamic mat-icon {
+  cursor: pointer;
+}

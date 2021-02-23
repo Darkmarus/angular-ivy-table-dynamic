@@ -1,0 +1,32 @@
+<h1 mat-dialog-title>Table Config</h1>
+
+<div mat-dialog-content>
+	<section>
+		<span >
+    <mat-checkbox 
+    (change)="setAll($event.checked)"
+    color="primary"
+    [checked]="allComplete"
+    [indeterminate]="someComplete()"> 
+      {{table.name}}
+    </mat-checkbox>
+  </span>
+		<span>
+    <ul>
+      <li *ngFor="let h of table.headers">
+        <mat-checkbox 
+        [(ngModel)]="h.checked"
+        color="primary"
+        (ngModelChange)="updateAllComplete()">
+          {{h.columnName}}
+        </mat-checkbox>
+      </li>
+    </ul>
+  </span>
+	</section>
+</div>
+
+<div mat-dialog-actions>
+	<button mat-button (click)="onNoClick()">Cancel</button>
+	<button mat-button [mat-dialog-close]="getHeaders()" cdkFocusInitial>Ok</button>
+</div>
